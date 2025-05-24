@@ -7,7 +7,7 @@ import time
 from selenium.webdriver.common.keys import Keys
 import unittest
 
-class test3_firefox(unittest.TestCase):
+class test3_edge(unittest.TestCase):
 
     def findElementWithText(self, text):
 
@@ -21,7 +21,7 @@ class test3_firefox(unittest.TestCase):
     
     def setUp(self):
 
-        self.driver = webdriver.Firefox()
+        self.driver = webdriver.Edge()
         self.driver.get("https://www.lego.com/en-ca")
         self.wait = WebDriverWait(self.driver, 30)
 
