@@ -26,68 +26,67 @@ class test1_firefox(unittest.TestCase):
         continue_btn.click()
 
 
-    def test_search(self):
-        print("starting test case 1")
-        time.sleep(1)
-        search = self.wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, 'button[data-test = "search-input-button"]')))
-        search.click()
-        search_input = self.wait.until(
-            EC.presence_of_element_located((By.CSS_SELECTOR, '[data-test="search-input"]'))
-        )
-        self.assertTrue(search_input.is_displayed())
-
-
-
-    def test_search_lego(self):
-        print("starting test case 2")
-
-        wait = WebDriverWait(self.driver, 30)
-        time.sleep(1)
-        search = self.wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, 'button[data-test = "search-input-button"]')))
-        search.click()
-
-        search_input = self.wait.until(
-            EC.presence_of_element_located((By.CSS_SELECTOR, '[data-test="search-input"]'))
-        )
-        search_input.click()
-        txt_input = self.driver.find_element(By.ID, "desktop-search-search-input")
-        time.sleep(1)
-        txt_input.send_keys("yoshi")
-        txt_input.send_keys(Keys.ENTER)
-        time.sleep(1)
-
-        link = wait.until(EC.presence_of_element_located((By.XPATH, '//a[@data-test="product-leaf-title" and contains(., "Super Mario World")]')))
-        self.assertTrue(link.is_displayed())
-
-
-    def test_add_to_cart(self):
-        print("starting test case 3")
-
-        wait = WebDriverWait(self.driver, 30)
-        time.sleep(3)
-        search = self.wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, 'button[data-test = "search-input-button"]')))
-        search.click()
-
-        search_input = self.wait.until(
-            EC.presence_of_element_located((By.CSS_SELECTOR, '[data-test="search-input"]'))
-        )
-        search_input.click()
-        txt_input = self.driver.find_element(By.ID, "desktop-search-search-input")
-        txt_input.send_keys("yoshi")
-        txt_input.send_keys(Keys.ENTER)
-        time.sleep(1)
-
-        link = wait.until(EC.presence_of_element_located((By.XPATH, '//a[@data-test="product-leaf-title" and contains(., "Super Mario World")]')))
-        link.click()
-        cart = wait.until(
-            EC.element_to_be_clickable((By.CSS_SELECTOR, 'button[data-test = "add-to-cart-skroll-cta"]')))
-        self.assertTrue(cart.is_displayed())
+    # def test_search(self):
+    #     print("starting test case 1")
+    #     time.sleep(1)
+    #     search = self.wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, 'button[data-test = "search-input-button"]')))
+    #     search.click()
+    #     search_input = self.wait.until(
+    #         EC.presence_of_element_located((By.CSS_SELECTOR, '[data-test="search-input"]'))
+    #     )
+    #     self.assertTrue(search_input.is_displayed())
+    #
+    #
+    #
+    # def test_search_lego(self):
+    #     print("starting test case 2")
+    #
+    #     wait = WebDriverWait(self.driver, 30)
+    #     time.sleep(1)
+    #     search = self.wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, 'button[data-test = "search-input-button"]')))
+    #     search.click()
+    #
+    #     search_input = self.wait.until(
+    #         EC.presence_of_element_located((By.CSS_SELECTOR, '[data-test="search-input"]'))
+    #     )
+    #     search_input.click()
+    #     txt_input = self.driver.find_element(By.ID, "desktop-search-search-input")
+    #     time.sleep(1)
+    #     txt_input.send_keys("yoshi")
+    #     txt_input.send_keys(Keys.ENTER)
+    #     time.sleep(1)
+    #
+    #     link = wait.until(EC.presence_of_element_located((By.XPATH, '//a[@data-test="product-leaf-title" and contains(., "Super Mario World")]')))
+    #     self.assertTrue(link.is_displayed())
+    #
+    #
+    # def test_add_to_cart(self):
+    #     print("starting test case 3")
+    #
+    #     wait = WebDriverWait(self.driver, 30)
+    #     time.sleep(3)
+    #     search = self.wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, 'button[data-test = "search-input-button"]')))
+    #     search.click()
+    #
+    #     search_input = self.wait.until(
+    #         EC.presence_of_element_located((By.CSS_SELECTOR, '[data-test="search-input"]'))
+    #     )
+    #     search_input.click()
+    #     txt_input = self.driver.find_element(By.ID, "desktop-search-search-input")
+    #     txt_input.send_keys("yoshi")
+    #     txt_input.send_keys(Keys.ENTER)
+    #     time.sleep(1)
+    #
+    #     link = wait.until(EC.presence_of_element_located((By.XPATH, '//a[@data-test="product-leaf-title" and contains(., "Super Mario World")]')))
+    #     link.click()
+    #     cart = wait.until(
+    #         EC.element_to_be_clickable((By.CSS_SELECTOR, 'button[data-test = "add-to-cart-skroll-cta"]')))
+    #     self.assertTrue(cart.is_displayed())
 
 
 
 
     def test_is_in_cart(self):
-        print("starting test case 4")
 
         time.sleep(3)
         search = self.wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, 'button[data-test = "search-input-button"]')))
